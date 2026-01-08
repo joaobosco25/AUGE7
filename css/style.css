@@ -86,6 +86,19 @@ body.loaded .loader {
     filter: brightness(0) invert(1);
 }
 
+.hero-minimal {
+    position: relative;
+    min-height: 100vh; /* ocupa a tela inteira */
+    background-image: url("/assets/images/background.jpeg"); /* sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
 .menu-dot {
     width: 40px;
     height: 40px;
@@ -166,6 +179,8 @@ body.loaded .loader {
     display: grid;
     grid-template-columns: 1fr;
     gap: 60px;
+    margin-top: 60px;
+
 }
 
 .glass-card {
@@ -176,6 +191,7 @@ body.loaded .loader {
     padding: 40px;
     border-radius: 24px;
     transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+
 }
 
 .glass-card i {
@@ -254,6 +270,7 @@ body.loaded .loader {
     gap: 10px;
     padding: 15px;
     border-radius: 15px;
+    color: wheat;
     background: rgba(255, 255, 255, 0.05);
 }
 
@@ -321,6 +338,112 @@ body.loaded .loader {
     transform: translateY(30px);
     animation: reveal 1s ease 0.3s forwards;
 }
+
+/* ===== MODAL OVERLAY ===== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+/* Modal ativo */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ===== MODAL GLASS ===== */
+.modal-glass {
+    width: 92%;
+    max-width: 420px;
+    padding: 28px 24px;
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.18),
+        rgba(255,255,255,0.05)
+    );
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.45),
+        inset 0 0 30px rgba(255,255,255,0.05);
+
+    color: #fff;
+    text-align: center;
+
+    transform: translateY(40px) scale(0.95);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+/* Animação ao abrir */
+.modal-overlay.active .modal-glass {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* ÍCONE */
+.modal-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+    color: #fff;
+}
+
+/* TÍTULO */
+.modal-glass h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+/* TEXTO */
+.modal-glass p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* BOTÃO FECHAR */
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 768px) {
+    .modal-glass {
+        max-width: 480px;
+        padding: 32px;
+    }
+
+    .modal-glass p {
+        font-size: 1rem;
+    }
+}
+
 
 @keyframes reveal {
     to { opacity: 1; transform: translateY(0); }

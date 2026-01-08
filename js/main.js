@@ -69,3 +69,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+// ===== MODAL FIX DEFINITIVO =====
+
+// abrir
+document.addEventListener("click", function (e) {
+    const card = e.target.closest(".glass-card[data-modal]");
+    if (!card) return;
+
+    const modal = document.getElementById(card.dataset.modal);
+    if (modal) modal.classList.add("active");
+});
+
+// fechar clicando no X
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("modal-close")) {
+        const modal = e.target.closest(".modal-overlay");
+        if (modal) modal.classList.remove("active");
+    }
+});
+
+// fechar clicando no fundo
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("modal-overlay")) {
+        e.target.classList.remove("active");
+    }
+});

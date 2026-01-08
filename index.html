@@ -39,20 +39,17 @@
     <section class="section-minimal" id="services">
         <div class="container">
             <div class="glass-card-grid">
-                <div class="glass-card fade-in-up">
+                <div class="glass-card fade-in-up" data-modal="modal-filmes">
                     <i class="fa-solid fa-video"></i>
-                    <h3>Filmes</h3>
-                    <p>Produção cinematográfica.</p>
+                    <h3>Quem Somos</h3>
                 </div>
-                <div class="glass-card fade-in-up">
+                <div class="glass-card fade-in-up" data-modal="modal-foto">
                     <i class="fa-solid fa-camera"></i>
-                    <h3>Foto</h3>
-                    <p>Captura profissional.</p>
+                    <h3>Publico-Alvo</h3>
                 </div>
-                <div class="glass-card fade-in-up">
+                <div class="glass-card fade-in-up" data-modal="modal-social">
                     <i class="fa-solid fa-bolt"></i>
-                    <h3>Social</h3>
-                    <p>Conteúdo dinâmico.</p>
+                    <h3>Eventos</h3>
                 </div>
             </div>
         </div>
@@ -101,5 +98,29 @@
     </div>
 
     <script src="js/main.js"></script>
+    <div class="modal-overlay" id="modal-filmes">
+    <div class="modal-glass">
+        <button class="modal-close">&times;</button>
+        <h2>Quem Somos</h2>
+        <p>texto a definir.</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-foto">
+    <div class="modal-glass">
+        <button class="modal-close">&times;</button>
+        <h2>Publico Alvo</h2>
+        <p>texto a definir</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-social">
+    <div class="modal-glass">
+        <button class="modal-close">&times;</button>
+        <h2>Eventos</h2>
+        <p>texto a definir</p>
+    </div>
+</div>
+
 </body>
 </html>
